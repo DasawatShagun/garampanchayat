@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DISPLAYING CLOCK</title>
+	<style type="text/css">
+	#clock {
+		width: 700px;
+		margin: 200px;
+		text-align: center;
+		font-size: 130px;
+	}
+	</style>
+</head>
+<body>
+<div id="clock"></div>
+<script type="text/javascript">
+	setInterval(dispclock, 500);
+	function dispclock() {
+		var time = new Date();
+		var hrs = time.getHours();
+		var min = time.getMinutes();
+		var sec = time.getSeconds();
+		var m = 'AM';
+		
+		if(hrs > 12) {
+		m = 'PM';
+		} 
+		
+		if(hrs >  12) {
+			hrs = hrs - 12;
+		}
+		
+		if(hrs == 0) {
+			hrs = 12;
+		}
+		
+		if(hrs < 10) {
+			hrs = '0' + hrs;
+		}
+		
+		if(min < 10) {
+			min  = '0' + min;
+		}
+		
+		if(sec < 10) {
+			sec = '0' + sec;
+		}
+		
+		 document.getElementById('clock').innerHTML = hrs + ':' + min + ':' + sec + ' ' + m;
+		}
+</script>
+</body>
+</html>
